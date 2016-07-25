@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+<!--  Jello Framework Settings  -->
+	<servlet>
+		<servlet-name>Jello</servlet-name>
+		<servlet-class>jello.JelloServlet</servlet-class>
+		<init-param>
+			<param-name>jello.cache.active</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>jello.cache.flushOnDeploy</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+      		<param-name>jello.copyright.text</param-name>
+      		<param-value>hecho por roger armoa 2016</param-value>
+    		</init-param>
+		<init-param>
+			<param-name>jello.cache.validTimeSeconds</param-name>
+			<param-value>3600</param-value>
+		</init-param>
+		<init-param>
+			<param-name>jello.search.enabledByDefault</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+  <servlet-mapping>
+		<servlet-name>Jello</servlet-name>
+		<url-pattern>/jello/*</url-pattern>
+	</servlet-mapping>
+  <servlet>
+		<servlet-name>Cron</servlet-name>
+		<servlet-class>jello.cron.CronServlet</servlet-class>
+		<init-param>
+			<param-name>packages</param-name>
+			<param-value>app</param-value>
+		</init-param>
+	</servlet>
+  <servlet-mapping>
+		<servlet-name>Cron</servlet-name>
+		<url-pattern>/cron/*</url-pattern>
+	</servlet-mapping>
+  <security-constraint>
+		<web-resource-collection>
+			<web-resource-name>cron-admin-authorization</web-resource-name>
+			<url-pattern>/cron/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+  <!--  End of Jello Framework Settings  -->
+</web-app>
