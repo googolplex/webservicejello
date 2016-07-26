@@ -16,6 +16,10 @@ import jello.model.JelloEntity;
 import jello.model.JelloModel;
 import jello.rest.IllegalRequestResource;
 import jello.security.*;
+import jello.ux.Validation;
+import app.VistaRestFeliz;
+
+
  
 /* @Accessible(
 		   retrieve = Role.ALL,
@@ -25,7 +29,7 @@ import jello.security.*;
 		   delete = { Role.ADMIN, Role.SYSTEM}
 		)
 		*/
-@Accessible
+@Accessible 
 @PersistenceCapable
 public class VistaRestFeliz extends JelloEntity  {
 	private static final long serialVersionUID = -374005810691063548L;
@@ -53,12 +57,14 @@ public class VistaRestFeliz extends JelloEntity  {
 	public Date fechaVencimiento;	
 	
 	@Expose @Required
+	@Validation(min=0)	
 	public Double totalCuota = 0.0D;
 	
 	@Expose @Required
-	public Long planilla;
+	@Validation(min=0)
+	public Double planilla = 0.0D;
 	
-	@NotPersistent @Expose
+	@NotPersistent @Expose	
 	public Integer diasMora = 0;
 	public Integer diasMora() {
 		DateTime ahoramismo = new DateTime() ;
@@ -98,26 +104,18 @@ public class VistaRestFeliz extends JelloEntity  {
 	//      throw new IllegalRequestResource( "something fishy while trying to save " +  this.getID() );
 		return this;
 	}
-	@Accessible 
+	@Accessible(Role.ALL) 
 	@SuppressWarnings("unchecked")
-	public static List<VistaRestFeliz> borrarPlanilla() throws IllegalRequestResource {
-		JelloModel.deleteAll(VistaRestFeliz.class);
-		// .deleteByQuery(VistaRestFeliz.class, "ruc==ruc"); 
-	/*	for(int i=0; i<10; i++) {
-			VistaRestFeliz p = new VistaRestFeliz();
-			p.apellidoNombre = "BORRADO " + i;
-			p.desOperacion = "BORRADO " + i;
-			p.fechaVencimiento = new Date();
-			p.nroContrato = "CMS";
-			p.nroCuota = "01-01";
-			p.nroOperacion = "-121212";
-			p.planilla = 0L;
-			p.ruc = "99" ;
-			p.Sucursal = 1;
-			p.totalCuota = 1D;
-			p.create();
-		}*/
+	public static String borrarPlanilla() throws IllegalRequestResource {
+		List<VistaRestFeliz> registros = (List<VistaRestFeliz>) JelloModel.select(VistaRestFeliz.class);
+		String id;
+		VistaRestFeliz aux;
+		for (int i = 0; i < registros.size() ; i++){
+			aux = registros.get(i);
+			id = aux.getID();
+			JelloModel.delete(VistaRestFeliz.class, id);
+		}
+		return "Planilla borrada exitosamente";		
 		
-		return (List<VistaRestFeliz>) JelloModel.select(VistaRestFeliz.class);
 	}	
 }
