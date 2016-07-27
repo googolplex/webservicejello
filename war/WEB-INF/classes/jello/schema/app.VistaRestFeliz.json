@@ -1,0 +1,95 @@
+{
+	"name" : "app.VistaRestFeliz",
+	"fields" : [
+		{
+			"name" : "apellidoNombre",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "ruc",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "Sucursal",
+			"type" : "java.lang.Integer",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "nroContrato",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "nroOperacion",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "nroCuota",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "fechaVencimiento",
+			"type" : "java.util.Date",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "totalCuota",
+			"type" : "java.lang.Double",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "planilla",
+			"type" : "java.lang.Long",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "diasMora",
+			"type" : "java.lang.Integer",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "desOperacion",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "totalMora",
+			"type" : "java.lang.Double",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "totalDeuda",
+			"type" : "java.lang.Double",
+			"isPublic" : true,
+			"isStatic" : false
+		}
+	],
+	"actions" : [
+		{
+			"name" : "borrarPlanilla",
+			"isPublic" : true,
+			"isStatic" : true,
+			"isAsync" : null,
+			"accessible" : [],
+			"params" : [
+			],
+			"returnType" : "java.util.List<app.VistaRestFeliz>"
+		}
+	]
+}
