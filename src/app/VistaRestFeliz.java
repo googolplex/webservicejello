@@ -1,5 +1,7 @@
 package app;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -53,7 +55,8 @@ public class VistaRestFeliz extends JelloEntity  {
 	@Expose  @Required
 	public String nroCuota;
 	
-	@Expose @Required
+	@Expose 
+	@Required
 	public Date fechaVencimiento;	
 	
 	@Expose @Required
@@ -84,7 +87,32 @@ public class VistaRestFeliz extends JelloEntity  {
 	
 	@NotPersistent @Expose
 	// parque calcula de otra forma
-	public Double totalMora = 0.0D;
+	public Double totalMora ;
+	public Double totalMora(){
+		String centro = this.nroOperacion.substring(1, 4);
+		// System.out.println(centro);
+		switch(centro){
+			case "PSM":
+				return 0d;
+			case "CMS":
+				if (this.diasMora > 30 && this.diasMora < 365){
+					return (double) Math.round(this.totalCuota * 0.1d);
+				
+				}
+				else{
+					return 0d;
+				}
+			default:
+				return (double) Math.round(this.diasMora * 0.01d * this.totalCuota);
+		}
+	}	
+	
+	@NotPersistent @Expose @Accessible
+	public String fechaVenceString;
+	public String fechaVenceString(){
+		DateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+		return formato.format(this.fechaVencimiento);
+	}	
 	
 	@NotPersistent @Expose
 	public Double totalDeuda = 0.0D;
@@ -118,4 +146,5 @@ public class VistaRestFeliz extends JelloEntity  {
 		return "Planilla borrada exitosamente";		
 		
 	}	
+	
 }
