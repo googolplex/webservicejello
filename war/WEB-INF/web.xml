@@ -10,7 +10,7 @@
 		<servlet-class>jello.JelloServlet</servlet-class>
 		<init-param>
 			<param-name>jello.cache.active</param-name>
-			<param-value>true</param-value>
+			<param-value>false</param-value>
 		</init-param>
 		<init-param>
 			<param-name>jello.cache.flushOnDeploy</param-name>
@@ -49,6 +49,15 @@
 		<web-resource-collection>
 			<web-resource-name>cron-admin-authorization</web-resource-name>
 			<url-pattern>/cron/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>viewprotegido</web-resource-name>
+			<url-pattern>/jello/view/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>admin</role-name>

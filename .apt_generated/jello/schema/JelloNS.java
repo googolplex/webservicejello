@@ -8,7 +8,7 @@ public class JelloNS implements NSProvider {
   @Override
   public List<String> getRootNamespaces() {
     List<String> allNS =  new ArrayList<String>();
-    allNS.add( "app");
+    allNS.add( "parqueserenidad");
     return allNS;
   }
 
