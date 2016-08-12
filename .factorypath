@@ -1,0 +1,4 @@
+<factorypath>
+    <factorypathentry kind="EXTJAR" id="/home/xoldfusion/Downloads/eclipse_mars/plugins/com.jello.framework.plugin_1.2.7/resources/lib/jello-1.2.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="PLUGIN" id="org.eclipse.jst.ws.annotations.core" enabled="true" runInBatchMode="false"/>
+</factorypath>

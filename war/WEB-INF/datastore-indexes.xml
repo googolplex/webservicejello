@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datastore-indexes autoGenerate="true">
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="VistaRestFeliz" ancestor="false" source="auto">
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="Consulta" ancestor="false" source="auto">
+        <property name="__key__" direction="desc"/>
+    </datastore-index>
+
+    <datastore-index kind="VistaRestFeliz" ancestor="false" source="auto">
+        <property name="ruc" direction="asc"/>
+        <property name="fechaVencimiento" direction="asc"/>
+    </datastore-index>
+</datastore-indexes>

@@ -1,0 +1,53 @@
+{
+	"name" : "parqueserenidad.Consulta",
+	"fields" : [
+		{
+			"name" : "ruc",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "cantDetalles",
+			"type" : "java.lang.Integer",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "codRetorno",
+			"type" : "java.lang.Integer",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "consultaDetalles",
+			"type" : "java.util.List<parqueserenidad.VistaRestFeliz>",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "desRetorno",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
+			"name" : "nombreApellido",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		}
+	],
+	"actions" : [
+		{
+			"name" : "borrarConsulta",
+			"isPublic" : true,
+			"isStatic" : true,
+			"isAsync" : null,
+			"accessible" : [],
+			"params" : [
+			],
+			"returnType" : "java.lang.String"
+		}
+	]
+}

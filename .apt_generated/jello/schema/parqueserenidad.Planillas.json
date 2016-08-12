@@ -1,0 +1,33 @@
+{
+	"name" : "parqueserenidad.Planillas",
+	"fields" : [
+		{
+			"name" : "numero",
+			"type" : "java.lang.Double",
+			"isPublic" : true,
+			"isStatic" : false
+		}
+	],
+	"actions" : [
+		{
+			"name" : "maxPlanilla",
+			"isPublic" : true,
+			"isStatic" : true,
+			"isAsync" : null,
+			"accessible" : [],
+			"params" : [
+			],
+			"returnType" : "java.lang.Double"
+		},
+		{
+			"name" : "traerUltimaPlanilla",
+			"isPublic" : true,
+			"isStatic" : true,
+			"isAsync" : null,
+			"accessible" : [],
+			"params" : [
+			],
+			"returnType" : "void"
+		}
+	]
+}
