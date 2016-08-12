@@ -51,7 +51,7 @@
 		},
 		{
 			"name" : "planilla",
-			"type" : "java.lang.Long",
+			"type" : "java.lang.Double",
 			"isPublic" : true,
 			"isStatic" : false
 		},
@@ -74,6 +74,12 @@
 			"isStatic" : false
 		},
 		{
+			"name" : "fechaVenceString",
+			"type" : "java.lang.String",
+			"isPublic" : true,
+			"isStatic" : false
+		},
+		{
 			"name" : "totalDeuda",
 			"type" : "java.lang.Double",
 			"isPublic" : true,
@@ -86,10 +92,10 @@
 			"isPublic" : true,
 			"isStatic" : true,
 			"isAsync" : null,
-			"accessible" : [],
+			"accessible" : ["ALL"],
 			"params" : [
 			],
-			"returnType" : "java.util.List<app.VistaRestFeliz>"
+			"returnType" : "java.lang.String"
 		}
 	]
 }
