@@ -1,9 +1,10 @@
-<!-- Indices written at Fri, 5 Aug 2016 09:58:54 PYT -->
+<!-- Indices written at Fri, 12 Aug 2016 13:05:52 PYT -->
 
 <datastore-indexes>
 
     <!-- Used 1 time in query history -->
     <datastore-index kind="VistaRestFeliz" ancestor="false" source="auto">
+        <property name="planilla" direction="asc"/>
         <property name="ruc" direction="asc"/>
         <property name="fechaVencimiento" direction="asc"/>
     </datastore-index>
