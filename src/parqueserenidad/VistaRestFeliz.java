@@ -82,6 +82,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	//@Expose({Role.ADMIN,Role.SYSTEM})
 	@Required
 	@Validation(min=0)
+	@KeyElement
 	public Double planilla = 0.0D;
 	
 	@NotPersistent 
