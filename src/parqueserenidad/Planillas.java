@@ -41,16 +41,20 @@ public class Planillas extends JelloEntity {
 	@Accessible
 	@SuppressWarnings("unchecked")
 	public static void  traerUltimaPlanilla() throws IllegalRequestResource  {
-	Options opciones = Options.getDefaults();
-	opciones.orderBy = "planilla DESC";
-	opciones.top = 1;
-	List<VistaRestFeliz> fetch = (List<VistaRestFeliz>) JelloModel.select(VistaRestFeliz.class, opciones);
-	VistaRestFeliz p = fetch.get(0);
-	Planillas max = new Planillas();
-	max.numero = p.planilla;
-	max.create() ;
-
-	        }
+		Options opciones = Options.getDefaults();
+		opciones.orderBy = "planilla DESC";
+		opciones.top = 1;
+		List<VistaRestFeliz> fetch = (List<VistaRestFeliz>) JelloModel.select(VistaRestFeliz.class, opciones);
+		VistaRestFeliz p = fetch.get(0);
+		Planillas max = new Planillas();
+		max.numero = p.planilla;
+		try{
+			max.create();
+		}
+		catch(Exception e){
+			
+		}
+	}
 
 	
 }

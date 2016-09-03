@@ -6,6 +6,7 @@ import jello.annotation.Required;
 import jello.model.JelloEntity;
 import jello.model.JelloModel;
 import jello.rest.IllegalRequestResource;
+import jello.rest.Options;
 import jello.security.Accessible;
 
 import java.util.List;
@@ -58,11 +59,22 @@ public class Consulta extends JelloEntity {
 	 public List<VistaRestFeliz> consultaDetalles(){
 		 Double maxplanilla = Planillas.maxPlanilla();
 		// String filtro = "ruc == '" + this.ruc + "'";
-		 String filtro = "planilla eq " + maxplanilla + " & ruc eq '" + this.ruc +"'";
+		/**
+		 * Formato anterior, sin $top
+		String filtro = "planilla eq " + maxplanilla + " & ruc eq '" + this.ruc +"'";
 		String orden = "fechaVencimiento ASC";
+		**/
+		Options opciones = Options.getDefaults();
+		opciones.filter = "planilla eq " + maxplanilla + " & ruc eq '" + this.ruc +"'";
+		opciones.orderBy = "fechaVencimiento ASC";
+		opciones.top = 8;
 		@SuppressWarnings("unchecked")
-		List<VistaRestFeliz> aux = (List<VistaRestFeliz>) JelloModel.select(VistaRestFeliz.class, filtro,orden);
-			this.cantDetalles = aux.size();
+		List<VistaRestFeliz> aux = (List<VistaRestFeliz>) JelloModel.select(VistaRestFeliz.class, opciones);
+		this.cantDetalles = aux.size();
+		// no tiene cuotas pendientes de cobro
+		if (this.cantDetalles.equals(0)) {
+			this.codRetorno = 1;
+		}
 		return aux;
 	}
 	
@@ -72,6 +84,8 @@ public class Consulta extends JelloEntity {
 		switch (this.codRetorno){
 			case 0:
 				return "Aprobado";
+			case 1:
+				return "Sin cuotas pendientes";
 			default:
 				return "No encontrado";
 		}
@@ -108,5 +122,22 @@ public class Consulta extends JelloEntity {
 		}	
 		
 		return "<br>Fin:Consultas borrada exitosamente";
-	}			
+	}
+	
+	@Accessible
+	@SuppressWarnings("finally")
+	public static String borrarConsulta2() throws IllegalRequestResource{
+		String filtro = "ruc > 0";
+		try{
+			List<String> instancias = JelloModel.selectIds(Consulta.class, filtro);
+			JelloModel.delete(VistaRestFeliz.class, instancias);
+			System.out.print("<h3>Borrado completo");
+		}
+		catch(Exception motivoDeLaQueja){
+			System.out.print("<h3>Error en el borrado");
+		}
+		finally{
+			return "<h3>Ejecucion terminada";
+		}
+	}
 }

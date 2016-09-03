@@ -108,6 +108,20 @@
 			"params" : [
 			],
 			"returnType" : "java.lang.String"
+		},
+		{
+			"name" : "borrarVistaRestFeliz",
+			"isPublic" : true,
+			"isStatic" : true,
+			"isAsync" : null,
+			"accessible" : [],
+			"params" : [
+				{
+					"name" : "planilla",
+					"type" : "java.lang.Double"
+				}
+			],
+			"returnType" : "java.lang.String"
 		}
 	]
 }

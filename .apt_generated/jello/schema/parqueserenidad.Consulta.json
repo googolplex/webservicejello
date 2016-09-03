@@ -48,6 +48,16 @@
 			"params" : [
 			],
 			"returnType" : "java.lang.String"
+		},
+		{
+			"name" : "borrarConsulta2",
+			"isPublic" : true,
+			"isStatic" : true,
+			"isAsync" : null,
+			"accessible" : [],
+			"params" : [
+			],
+			"returnType" : "java.lang.String"
 		}
 	]
 }

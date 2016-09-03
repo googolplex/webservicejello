@@ -192,5 +192,16 @@ public class VistaRestFeliz extends JelloEntity  {
 		return "<br>Fin: Planilla borrada exitosamente";
 	}	
 	
-	
+	@Accessible
+	public static String borrarVistaRestFeliz(Double planilla) throws IllegalRequestResource{
+		String filtro = "planilla == " + planilla;
+		try{
+			List<String> instancias = JelloModel.selectIds(VistaRestFeliz.class, filtro);
+			JelloModel.delete(VistaRestFeliz.class, instancias);
+			return "<h3>Borrado completo";
+		}
+		catch(Exception motivoDeLaQueja){
+			return "<h3>Error en el borrado";
+		}
+	}
 }
