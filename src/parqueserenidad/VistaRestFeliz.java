@@ -13,6 +13,7 @@ import org.joda.time.Days;
 
 import jello.annotation.Expose;
 import jello.annotation.KeyElement;
+import jello.annotation.ReadOnly;
 import jello.annotation.Required;
 import jello.model.JelloEntity;
 import jello.model.JelloModel;
@@ -73,6 +74,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	
 	@Expose 
 	@NotPersistent
+	@ReadOnly // avoid firing this method on insert or update
 	public String totalCuotaS ;
 	public String totalCuotaS() {
 		return String.format("%013.0f", this.totalCuota) + "00";
@@ -87,6 +89,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	
 	@NotPersistent 
 	@Expose 
+	@ReadOnly // avoid firing this method on insert or update
 	@Accessible
 	public Integer diasMora;
 	public Integer diasMora() {
@@ -107,6 +110,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	public String desOperacion ;
 	
 	@NotPersistent 
+	@ReadOnly // avoid firing this method on insert or update
 	@Expose
 	//@Expose({Role.ADMIN,Role.SYSTEM})
 	public Double totalMora = 0.0D;
@@ -130,6 +134,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	}	
 	
 	@Expose 
+	@ReadOnly // avoid firing this method on insert or update
 	@NotPersistent
 	public String totalMoraS ;
 	public String totalMoraS() {
@@ -139,6 +144,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	}
 	
 	@NotPersistent @Expose @Accessible
+	@ReadOnly // avoid firing this method on insert or update
 	public String fechaVenceString;
 	public String fechaVenceString(){
 		DateFormat formato = new SimpleDateFormat("ddMMyyyy");
@@ -146,6 +152,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	}	
 	
 	@NotPersistent 
+	@ReadOnly // avoid firing this method on insert or update
 	@Expose
 	// @Expose({Role.ADMIN,Role.SYSTEM})
 	public Double totalDeuda = 0.0D;
@@ -156,6 +163,7 @@ public class VistaRestFeliz extends JelloEntity  {
 	}
 
 	@Expose @NotPersistent
+	@ReadOnly // avoid firing this method on insert or update
 	public String totalDeudaS ;
 	public String totalDeudaS() {
 		// porque no se ejecuta cuando el rol no lo permite

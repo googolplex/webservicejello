@@ -2,6 +2,7 @@ package parqueserenidad;
 
 import jello.annotation.Expose;
 import jello.annotation.KeyElement;
+import jello.annotation.ReadOnly;
 import jello.annotation.Required;
 import jello.model.JelloEntity;
 import jello.model.JelloModel;
@@ -54,6 +55,7 @@ public class Consulta extends JelloEntity {
 
  
 	@NotPersistent
+	@ReadOnly // avoid firing calculated field methos on INSERT or UPDATE REST
 	@Expose	
 	 public List<VistaRestFeliz> consultaDetalles;
 	 public List<VistaRestFeliz> consultaDetalles(){
